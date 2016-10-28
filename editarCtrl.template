@@ -1,0 +1,47 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name nameApp.controller:Editar{{entity.name|capitalize}}Ctrl
+ * @description
+ * # Editar{{entity.name|capitalize}}Ctrl
+ * Controller of the nameApp
+ */
+angular.module('nameApp')
+  .controller('Editar{{entity.name|capitalize}}Ctrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    $scope.title = '{{entity.name|capitalize}}';
+    $scope.message = 'Agregar {{entity.name|capitalize}}';
+
+    {% for property in entity.properties %}
+      $http.get(api_path + '{{property.name}}?limit=0')
+      .then(function(response) {
+        $scope.{{property.name}} = response.data;
+      });
+    {% endfor %}
+
+    $scope.load = function(id){
+    $http.get(api_path + '{{entity.name}}/'+id)
+    .then(function(response) {
+        $scope.{{entity.name}} = response.data;
+    });
+  };
+
+    $scope.edit = function(id){
+    {% for property in entity.properties %}
+      if($scope.{{entity.name}}.{{property.name}} == null){
+        return;
+      }
+    {% endfor %}
+    var data = {
+      {% for property in entity.properties %}
+        {{property.name}}: $scope.{{entity.name}}.{{property.name}},
+      {% endfor %}
+    };
+    $http.put(api_path + '{{entity.name}}',data);
+    window.location.href = '#/{{entity.name}}';
+  };
+
+  $scope.cancel = function(){
+    window.location.href = '#/{{entity.name}}';
+  };
+  }]);

@@ -1,0 +1,25 @@
+// template for html addform view
+<div ng-controller="agregar{{entity.name|capitalize}}Ctrl">
+<div class="jumbotron text-center">
+<h2>{{'{{'}} title {{'}}'}}</h2>
+<hr>
+<p>{{'{{'}} message {{'}}'}}</p>
+<form name="{{entity.name|capitalize}}Form" class="form-horizontal">
+      {% for property in entity.properties %}
+        <div class="form-group">
+          <label for="{{property.name}}" class="col-sm-2 control-label">{{property.name}}:</label>
+          <div class="col-sm-10">
+            <input name="{{property.name}}" type="{{property.type}}" ng-model="{{entity.name}}.{{property.name}}" class="form-control"/>
+          </div>
+        </div>
+      {% endfor %}
+</form>
+<div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" ng-click="cancel()" value="Cancelar" class="btn btn-primary"/>
+        <input type="submit" ng-click="add()" value="Guardar" class="btn btn-success"/>
+      </div>
+    </div>
+</div>
+<pre>{{entity.name|capitalize}} = {{'{{'}}{{entity.name}} | json{{'}}'}}</pre>
+</div>

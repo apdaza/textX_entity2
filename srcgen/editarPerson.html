@@ -1,0 +1,36 @@
+// template for add form view
+<div ng-controller="EditarPersonCtrl">
+  <div class="jumbotron text-center">
+  <h2>{{ title }}</h2>
+  <hr>
+  <p>{{ message }}</p>
+
+  <form name="PersonForm" class="form-horizontal" ng-init="load(id)">
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-10">
+        <input name="name" type="text" ng-model="Person.name" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address" class="col-sm-2 control-label">Address</label>
+      <div class="col-sm-10">
+        <input name="address" type="text" ng-model="Person.address" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="age" class="col-sm-2 control-label">Age</label>
+      <div class="col-sm-10">
+        <input name="age" type="text" ng-model="Person.age" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" ng-click="cancel()" value="Cancelar" class="btn btn-primary"/>
+        <input type="submit" ng-click="edit(id)" value="Guardar" class="btn btn-success"/>
+      </div>
+    </div>
+  </form>
+  <pre>Person = {{Person}} | json}}</pre>
+  </div>
+</div>

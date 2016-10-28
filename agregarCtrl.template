@@ -1,0 +1,40 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name nameApp.controller:Agregar{{entity.name|capitalize}}Ctrl
+ * @description
+ * # Agregar{{entity.name|capitalize}}Ctrl
+ * Controller of the nameApp
+ */
+angular.module('nameApp')
+  .controller('Agregar{{entity.name|capitalize}}Ctrl', function ($scope, $http) {
+    $scope.title = '{{entity.name|capitalize}}';
+    $scope.message = 'Agregar {{entity.name|capitalize}}';
+
+    {% for property in entity.properties %}
+      $http.get(api_path + '{{property.name}}?limit=0')
+      .then(function(response) {
+        $scope.{{property.name}} = response.data;
+      });
+    {% endfor %}
+
+    $scope.add = function(){
+    {% for property in entity.properties %}
+      if($scope.{{entity.name}}.{{property.name}} == null){
+        return;
+      }
+    {% endfor %}
+    var data = {
+      {% for property in entity.properties %}
+        {{property.name}}: $scope.{{entity.name}}.{{property.name}},
+      {% endfor %}
+    };
+    $http.post(api_path + '{{entity.name}}',data);
+    window.location.href = '#/{{entity.name}}';
+  };
+
+  $scope.cancel = function(){
+    window.location.href = '#/{{entity.name}}';
+  };
+  });

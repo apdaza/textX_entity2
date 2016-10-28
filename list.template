@@ -1,0 +1,41 @@
+// template for html table view
+<div ng-controller="{{entity.name|capitalize}}Ctrl">
+<div class="jumbotron text-center">
+<h2>{{'{{'}} title {{'}}'}}</h2>
+<hr>
+<p>{{'{{'}} message {{'}}'}}</p>
+<table id="list" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      {% for property in entity.properties %}
+        <th>{{property.name}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="d in data">
+      {% for property in entity.properties %}
+        <td>{{'{{'}}d.{{property.name}}{{'}}'}}</td>
+      {% endfor %}
+      <td class="text-right">
+          <a href="#/editar{{entity.name|capitalize}}/{{ '{{' }}d.Id{{ '}}' }}"><img src="images/ico/edit.png"></a>
+          <a href="#/eliminar{{entity.name|capitalize}}/{{ '{{' }}d.Id{{ '}}' }}"><img src="images/ico/delete.png"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script>
+$(document).ready(function() {
+  $('#list').DataTable( {
+      columnDefs: [ {
+          targets: [ 0 ],
+          orderData: [ 0, 1 ]
+      }, {
+          targets: [ 1 ],
+          orderData: [ 1, 0 ]
+      }]
+  } );
+} );
+</script>
+</div>
