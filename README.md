@@ -50,6 +50,6 @@ To run the example do the following:
 
         $ python entity_codegen.py
 
-  This will produce Java files `Address.java` and `Person.java` in `srcgen`
+  This will produce html and js files to `Address` and `Person` in `srcgen`
   folder that corresponds to entities from the Person model.
 
