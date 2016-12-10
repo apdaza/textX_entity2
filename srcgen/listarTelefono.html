@@ -1,5 +1,5 @@
 // template for html table view
-<div ng-controller="AddressCtrl">
+<div ng-controller="TelefonoCtrl">
 <div class="jumbotron text-center">
 <h2>{{ title }}</h2>
 <hr>
@@ -7,19 +7,17 @@
 <table id="list" class="table table-striped table-bordered">
   <thead>
     <tr>
-        <th>street</th>
-        <th>city</th>
-        <th>country</th>
+        <th>indicador</th>
+        <th>numero</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="d in data">
-        <td>{{d.street}}</td>
-        <td>{{d.city}}</td>
-        <td>{{d.country}}</td>
+        <td>{{d.indicador}}</td>
+        <td>{{d.numero}}</td>
       <td class="text-right">
-          <a href="#/editarAddress/{{d.Id}}"><img src="images/ico/edit.png"></a>
-          <a href="#/eliminarAddress/{{d.Id}}"><img src="images/ico/delete.png"></a>
+          <a href="#/editarTelefono/{{d.Id}}"><img src="images/ico/edit.png"></a>
+          <a href="#/eliminarTelefono/{{d.Id}}"><img src="images/ico/delete.png"></a>
       </td>
     </tr>
   </tbody>

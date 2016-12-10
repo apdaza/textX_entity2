@@ -1,5 +1,5 @@
 """
-An example how to generate java code from textX model using jinja2
+An example how to generate angularjs code from textX model using jinja2
 template engine (http://jinja.pocoo.org/docs/dev/)
 """
 from os import mkdir

@@ -1,27 +1,27 @@
 // template for add form view
-<div ng-controller="EditarPersonCtrl">
+<div ng-controller="EditarDireccionCtrl">
   <div class="jumbotron text-center">
   <h2>{{ title }}</h2>
   <hr>
   <p>{{ message }}</p>
 
-  <form name="PersonForm" class="form-horizontal" ng-init="load(id)">
+  <form name="DireccionForm" class="form-horizontal" ng-init="load(id)">
     <div class="form-group">
-      <label for="name" class="col-sm-2 control-label">Name</label>
+      <label for="calle" class="col-sm-2 control-label">Calle</label>
       <div class="col-sm-10">
-        <input name="name" type="text" ng-model="Person.name" class="form-control"/>
+        <input name="calle" type="text" ng-model="Direccion.calle" class="form-control"/>
       </div>
     </div>
     <div class="form-group">
-      <label for="address" class="col-sm-2 control-label">Address</label>
+      <label for="ciudad" class="col-sm-2 control-label">Ciudad</label>
       <div class="col-sm-10">
-        <input name="address" type="text" ng-model="Person.address" class="form-control"/>
+        <input name="ciudad" type="text" ng-model="Direccion.ciudad" class="form-control"/>
       </div>
     </div>
     <div class="form-group">
-      <label for="age" class="col-sm-2 control-label">Age</label>
+      <label for="pais" class="col-sm-2 control-label">Pais</label>
       <div class="col-sm-10">
-        <input name="age" type="text" ng-model="Person.age" class="form-control"/>
+        <input name="pais" type="text" ng-model="Direccion.pais" class="form-control"/>
       </div>
     </div>
     <div class="form-group">
@@ -31,6 +31,6 @@
       </div>
     </div>
   </form>
-  <pre>Person = {{Person}} | json}}</pre>
+  <pre>Direccion = {{Direccion}} | json}}</pre>
   </div>
 </div>
