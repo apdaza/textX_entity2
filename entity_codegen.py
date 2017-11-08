@@ -17,6 +17,15 @@ def main(debug=False):
     # Build Person model from person.ent file
     person_model = entity_mm.model_from_file(join(this_folder, 'person.ent'))
 
+    def is_entity(n):
+        """
+        Test to prove if some type is an entity
+        """
+        if n.type in person_model.entities:
+            return True
+        else:
+            return False
+
     def javatype(s):
         """
         Maps type names from PrimitiveType to Java.
@@ -38,15 +47,18 @@ def main(debug=False):
         lstrip_blocks=True)
 
     # Register filter for mapping Entity type names to Java type names.
-    #jinja_env.filters['javatype'] = javatype
+
+    jinja_env.tests['entity'] = is_entity
+
+    jinja_env.filters['javatype'] = javatype
 
     # Load template
-    template = jinja_env.get_template('list.template')
+    template = jinja_env.get_template('clase.template')
 
     for entity in person_model.entities:
         # For each entity generate java file
         with open(join(srcgen_folder,
-                       "listar%s.html" % entity.name.capitalize()), 'w') as f:
+                       "%s.java" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
 
     # Load agregar template
