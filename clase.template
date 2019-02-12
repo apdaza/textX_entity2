@@ -1,5 +1,5 @@
 public class {{entity.name|capitalize}} {
-    
+
   {% for property in entity.properties %}
     {% if property is entity %}
       private {{property.type.name|capitalize}} {{property.name}};
@@ -9,14 +9,28 @@ public class {{entity.name|capitalize}} {
   {% endfor %}
 
   {% for property in entity.properties %}
+  {% if property is entity %}
+    public {{property.type.name|capitalize}} get{{property.name|capitalize}}(){
+      return this.{{property.name}};
+    }
+  {% else %}
     public {{property.type}} get{{property.name|capitalize}}(){
       return this.{{property.name}};
     }
+  {% endif %}
   {% endfor %}
+
   {% for property in entity.properties %}
-    public void set{{property.name|capitalize}}({{property.type}} value){
-      this.{{property.name}} = value;
-    }
+    {% if property is entity %}
+      public void set{{property.type.name|capitalize}}({{property.type.name|capitalize}} value){
+        this.{{property.name}} = value;
+      }
+    {% else %}
+      public void set{{property.name|capitalize}}({{property.type}} value){
+        this.{{property.name}} = value;
+      }
+    {% endif %}
+
   {% endfor %}
 
 }

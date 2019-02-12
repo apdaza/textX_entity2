@@ -65,7 +65,7 @@ def main(debug=False):
     template = jinja_env.get_template('list.template')
 
     for entity in person_model.entities:
-        # For each entity generate java file
+        # For each entity generate html file
         with open(join(srcgen_folder,
                        "agregar%s.html" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
@@ -74,7 +74,7 @@ def main(debug=False):
     template = jinja_env.get_template('editar.template')
 
     for entity in person_model.entities:
-        # For each entity generate java file
+        # For each entity generate html file
         with open(join(srcgen_folder,
                        "editar%s.html" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
@@ -83,7 +83,7 @@ def main(debug=False):
     template = jinja_env.get_template('agregarCtrl.template')
 
     for entity in person_model.entities:
-        # For each entity generate java file
+        # For each entity generate js file
         with open(join(srcgen_folder,
                        "agregar%s.js" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))

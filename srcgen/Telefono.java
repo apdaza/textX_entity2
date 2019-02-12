@@ -1,5 +1,5 @@
 public class Telefono {
-    
+
        private String indicador;
        private String numero;
 
@@ -9,11 +9,14 @@ public class Telefono {
     public string getNumero(){
       return this.numero;
     }
-    public void setIndicador(string value){
-      this.indicador = value;
-    }
-    public void setNumero(string value){
-      this.numero = value;
-    }
+
+      public void setIndicador(string value){
+        this.indicador = value;
+      }
+
+      public void setNumero(string value){
+        this.numero = value;
+      }
+
 
 }
