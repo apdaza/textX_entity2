@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Clase destinada a la gestion de datos referente {{entity.name|capitalize}}
+ *
+ * @version 1.0
+ * @since 12/06/2014
+ */
+class C{{entity.name|capitalize}}Data {
+    var $db = null;
+
+    {% for property in entity.properties %}
+      var ${{property.name}} = null;
+    {% endfor %}
+
+    /**
+     * Constructor de la clase
+     * @param CData $db
+     */
+    function C{{entity.name|capitalize}}Data($db){
+        $this->db = $db;
+    }
+
+    /**
+     * Funcion que inserta una nueva {{entity.name|capitalize}} en la base de datos
+     */
+    function insertar{{entity.name|capitalize}}(${{entity.name|lower}}){
+        $tabla = "{{entity.name}}";
+        $campos = "{% for property in entity.properties -%}
+          {%- if property is entity -%}
+            {{property.type.name|lower}}_{{property.name}}{% if not loop.last %},{% endif %}
+          {% else %}
+             {{entity.name|lower}}_{{property.name}}{% if not loop.last %},{% endif %}
+          {% endif %}
+          {%- endfor %}
+        ";
+        $valores = "'".{% for property in entity.properties -%}
+            ${{entity.name|lower}}.get{{property.name|capitalize}}(){% if not loop.last %}."','".{% endif %}
+          {%- endfor %}."'";
+        $r = $this->db->insertarRegistro($tabla, $campos, $valores);
+        if ($r == "true") {
+            return MENSAJE_{{entity.name|upper}}_INSERTADA;
+        } else {
+            return MENSAJE_ERROR_{{entity.name|upper}}_INSERTADA;
+        }
+    }
+}
