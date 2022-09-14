@@ -67,7 +67,7 @@ def main(debug=False):
     for entity in person_model.entities:
         # For each entity generate html file
         with open(join(srcgen_folder,
-                       "agregar%s.html" % entity.name.capitalize()), 'w') as f:
+                       "listar%s.html" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
 
     # Load template

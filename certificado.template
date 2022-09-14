@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>{{entity[0]|capitalize}}</title>
+  </head>
+  <body>
+    <h1>Certificado de cumplimiento</h1>
+    <h2>{{entity[0]|capitalize}}</h2>
+
+    <p>El sr {{entity[0]|capitalize}} identificado con el documento numero {{entity[1]|capitalize}}, cumplio con las actividades listadas a continuacion</p>
+    <table>
+    <tr>
+    <th>Actividad</td>
+    <th>Nota</td>
+    </tr>
+    {% for actividad in entity[3:] %}
+    {% set temporal = actividad.split("=") %}
+      <tr>
+      <td>{{temporal[0]|capitalize}}</td>
+      <td>{{temporal[1]}}</td>
+      </tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>

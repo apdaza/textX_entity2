@@ -1,0 +1,68 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+139700903379728 -> 139700903380928 [label="entities:0" arrowtail=diamond dir=both]
+139700903380928 -> 139700903380496 [label="properties:0" arrowtail=diamond dir=both]
+139700903380496 -> 139700911760384 [label="type" ]
+139700911760384[label="{string:SimpleType|}"]
+139700903380496[label="{nombre:Property|}"]
+139700903380928 -> 139700903380448 [label="properties:1" arrowtail=diamond dir=both]
+139700903380448 -> 139700911760384 [label="type" ]
+139700903380448[label="{apellido:Property|}"]
+139700903380928 -> 139700903381072 [label="properties:2" arrowtail=diamond dir=both]
+139700903381072 -> 139700903381792 [label="type" ]
+139700903381792 -> 139700903382752 [label="properties:0" arrowtail=diamond dir=both]
+139700903382752 -> 139700911760384 [label="type" ]
+139700903382752[label="{calle:Property|}"]
+139700903381792 -> 139700903382848 [label="properties:1" arrowtail=diamond dir=both]
+139700903382848 -> 139700911760384 [label="type" ]
+139700903382848[label="{ciudad:Property|}"]
+139700903381792 -> 139700903047232 [label="properties:2" arrowtail=diamond dir=both]
+139700903047232 -> 139700911760384 [label="type" ]
+139700903047232[label="{pais:Property|}"]
+139700903381792 -> 139700903047424 [label="properties:3" arrowtail=diamond dir=both]
+139700903047424 -> 139700911760912 [label="type" ]
+139700911760912[label="{integer:SimpleType|}"]
+139700903047424[label="{numero:Property|}"]
+139700903381792[label="{Direccion:Entity|}"]
+139700903381072[label="{direccion:Property|}"]
+139700903380928 -> 139700903380256 [label="properties:3" arrowtail=diamond dir=both]
+139700903380256 -> 139700911760912 [label="type" ]
+139700903380256[label="{edad:Property|}"]
+139700903380928 -> 139700903379776 [label="properties:4" arrowtail=diamond dir=both]
+139700903379776 -> 139700903382560 [label="type" ]
+139700903382560 -> 139700903047808 [label="properties:0" arrowtail=diamond dir=both]
+139700903047808 -> 139700911760384 [label="type" ]
+139700903047808[label="{indicador:Property|}"]
+139700903382560 -> 139700903047904 [label="properties:1" arrowtail=diamond dir=both]
+139700903047904 -> 139700911760384 [label="type" ]
+139700903047904[label="{numero:Property|}"]
+139700903382560[label="{Telefono:Entity|}"]
+139700903379776[label="{telefono:Property|}"]
+139700903380928 -> 139700903382368 [label="properties:5" arrowtail=diamond dir=both]
+139700903382368 -> 139700911760384 [label="type" ]
+139700903382368[label="{correo:Property|}"]
+139700903380928[label="{Persona:Entity|}"]
+139700903379728 -> 139700903381792 [label="entities:1" arrowtail=diamond dir=both]
+139700903379728 -> 139700903382560 [label="entities:2" arrowtail=diamond dir=both]
+139700903379728 -> 139700903047616 [label="entities:3" arrowtail=diamond dir=both]
+139700903047616 -> 139700903048288 [label="properties:0" arrowtail=diamond dir=both]
+139700903048288 -> 139700911760384 [label="type" ]
+139700903048288[label="{id:Property|}"]
+139700903047616 -> 139700903048384 [label="properties:1" arrowtail=diamond dir=both]
+139700903048384 -> 139700911760384 [label="type" ]
+139700903048384[label="{nombre:Property|}"]
+139700903047616[label="{Prueba:Entity|}"]
+139700903379728[label="{:EntityModel|types:list=[]\l}"]
+
+}

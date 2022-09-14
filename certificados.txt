@@ -1,0 +1,3 @@
+Alejandro Paz, 789076543, 3146789065, programacion basica = 50, programacion orientada a objetos = 50, modelos de programacion 1 = 50, modelos de programacion 2 = 50
+Diego Perez, 123456789, 3121456789, programacion avanzada = 40, programacion orientada a objetos = 30, modelos de programacion 1 = 50, modelos de programacion 2 = 25
+Ana Diaz, 123456789, 3121456789, programacion basica = 40, programacion orientada a objetos = 30, modelos de programacion 1 = 50, modelos de programacion 2 = 25
