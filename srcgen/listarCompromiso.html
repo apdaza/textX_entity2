@@ -1,0 +1,39 @@
+// template for html table view
+<div ng-controller="CompromisoCtrl">
+<div class="jumbotron text-center">
+<h2>{{ title }}</h2>
+<hr>
+<p>{{ message }}</p>
+<table id="list" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+        <th>persona</th>
+        <th>descripcion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="d in data">
+        <td>{{d.persona}}</td>
+        <td>{{d.descripcion}}</td>
+      <td class="text-right">
+          <a href="#/editarCompromiso/{{d.Id}}"><img src="images/ico/edit.png"></a>
+          <a href="#/eliminarCompromiso/{{d.Id}}"><img src="images/ico/delete.png"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script>
+$(document).ready(function() {
+  $('#list').DataTable( {
+      columnDefs: [ {
+          targets: [ 0 ],
+          orderData: [ 0, 1 ]
+      }, {
+          targets: [ 1 ],
+          orderData: [ 1, 0 ]
+      }]
+  } );
+} );
+</script>
+</div>

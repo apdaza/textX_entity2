@@ -1,0 +1,36 @@
+// template for add form view
+<div ng-controller="EditarCargoCtrl">
+  <div class="jumbotron text-center">
+  <h2>{{ title }}</h2>
+  <hr>
+  <p>{{ message }}</p>
+
+  <form name="CargoForm" class="form-horizontal" ng-init="load(id)">
+    <div class="form-group">
+      <label for="empresa" class="col-sm-2 control-label">Empresa</label>
+      <div class="col-sm-10">
+        <input name="empresa" type="text" ng-model="Cargo.empresa" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="jefe" class="col-sm-2 control-label">Jefe</label>
+      <div class="col-sm-10">
+        <input name="jefe" type="text" ng-model="Cargo.jefe" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="salario" class="col-sm-2 control-label">Salario</label>
+      <div class="col-sm-10">
+        <input name="salario" type="text" ng-model="Cargo.salario" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" ng-click="cancel()" value="Cancelar" class="btn btn-primary"/>
+        <input type="submit" ng-click="edit(id)" value="Guardar" class="btn btn-success"/>
+      </div>
+    </div>
+  </form>
+  <pre>Cargo = {{Cargo}} | json}}</pre>
+  </div>
+</div>

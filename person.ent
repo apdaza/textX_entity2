@@ -4,7 +4,8 @@ entity Persona {
   direccion: Direccion  
   edad: integer        
   telefono : Telefono  
-  correo : string      
+  correo : string  
+  apodo : string    
 }                     
 
 entity Direccion {
@@ -22,4 +23,10 @@ entity Telefono {
 entity Compromiso {
   persona : Persona
   descripcion : string
+}
+
+entity Cargo {
+  empresa : string
+  jefe : Persona
+  salario : integer
 }

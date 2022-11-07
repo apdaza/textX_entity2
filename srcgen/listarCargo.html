@@ -1,0 +1,41 @@
+// template for html table view
+<div ng-controller="CargoCtrl">
+<div class="jumbotron text-center">
+<h2>{{ title }}</h2>
+<hr>
+<p>{{ message }}</p>
+<table id="list" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+        <th>empresa</th>
+        <th>jefe</th>
+        <th>salario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="d in data">
+        <td>{{d.empresa}}</td>
+        <td>{{d.jefe}}</td>
+        <td>{{d.salario}}</td>
+      <td class="text-right">
+          <a href="#/editarCargo/{{d.Id}}"><img src="images/ico/edit.png"></a>
+          <a href="#/eliminarCargo/{{d.Id}}"><img src="images/ico/delete.png"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script>
+$(document).ready(function() {
+  $('#list').DataTable( {
+      columnDefs: [ {
+          targets: [ 0 ],
+          orderData: [ 0, 1 ]
+      }, {
+          targets: [ 1 ],
+          orderData: [ 1, 0 ]
+      }]
+  } );
+} );
+</script>
+</div>

@@ -53,6 +53,7 @@ def main(debug=False):
     jinja_env.filters['javatype'] = javatype
 
     # Load template
+    '''
     template = jinja_env.get_template('clase.template')
 
     for entity in person_model.entities:
@@ -60,8 +61,9 @@ def main(debug=False):
         with open(join(srcgen_folder,
                        "%s.java" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
-
+    '''
     # Load agregar template
+    
     template = jinja_env.get_template('list.template')
 
     for entity in person_model.entities:
@@ -69,8 +71,9 @@ def main(debug=False):
         with open(join(srcgen_folder,
                        "listar%s.html" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
-
+    
     # Load template
+    
     template = jinja_env.get_template('editar.template')
 
     for entity in person_model.entities:
@@ -78,8 +81,9 @@ def main(debug=False):
         with open(join(srcgen_folder,
                        "editar%s.html" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
-
+    
     # Load template
+    
     template = jinja_env.get_template('agregarCtrl.template')
 
     for entity in person_model.entities:
@@ -87,6 +91,6 @@ def main(debug=False):
         with open(join(srcgen_folder,
                        "agregar%s.js" % entity.name.capitalize()), 'w') as f:
             f.write(template.render(entity=entity))
-
+    
 if __name__ == "__main__":
     main()
